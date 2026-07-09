@@ -16,8 +16,8 @@ export const authMiddleware = (
       res.status(401).json({ message: "توکن یافته نشد" });
       return;
     }
-    const tooken = authHeader.split(" ")[1];
-    const payload = verifyToken(tooken);
+    const token = authHeader.split(" ")[1];
+    const payload = verifyToken(token);
     req.userId = payload.userId;
     next();
   } catch (error) {
